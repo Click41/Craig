@@ -1,8 +1,11 @@
+require("dotenv").config();
 const express = require("express");
 const layouts = require("express-ejs-layouts");
 const mysql = require("mysql2");
-
 const animalController = require("./controllers/animalController");
+
+require("./models/animals.js")
+require("./models/createAnimal.js")
 
 const app = express();
 app.use(express.static("public"));
@@ -11,10 +14,10 @@ app.use(layouts);
 app.set("port", process.env.PORT || 3000);
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "your_db_username",
-  password: "your_db_password",
-  database: "Animals"
+  host: process.env.DB_HOST,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
 
 db.connect((err) => {

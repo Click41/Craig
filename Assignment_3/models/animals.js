@@ -1,23 +1,22 @@
-const mongoose = require("mongoose");
+const { DataTypes } = require("sequelize");
+const sequelize = require("../public/js/sequelize"); // Import your Sequelize instance
 
-const animalSchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
-
-    description: {
-        type: String,
-        required: true,
-    },
-
-    // Same as index in the list and order of options in select box. Easy to use for database.
-    id: { 
-        type: Number, 
-        required: true, 
-        unique: true 
-    },
-
+const Animal = sequelize.define("Animal", {
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  description: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+    unique: true,
+  },
 });
 
-module.exports = mongoose.model("Animal", animalSchema);
+module.exports = Animal;
