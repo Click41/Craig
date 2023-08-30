@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals</title>
+
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+
+</head>
+
+<body>
+    <h1>Choose Your Animal!</h1>
+
+    <div class="selectBox">
+        <select id="selectAnimal" onchange="animalGrab()">
+            <option value="">Select your Animal</option>
+            <option value="1">Dog</option>
+            <option value="2">Cat</option>
+            <option value="3">Bald Eagle</option>
+            <option value="4">Snake</option>
+            <option value="5">Fish</option>
+            <option value="6">Spider</option>
+            <option value="7">Ant</option>
+            <option value="8">Centipede</option>
+            <option value="9">Tiger</option>
+            <option value="10">Human</option>
+        </select>
+
+        <div id="output"></div>
+    </div>
+
+    <!-- Had to move to client code side for function to work -->
+    <script>
+        const animalList = [
+            "A man's best friend",
+            "Independent and curious animals",
+            "The symbol of America",
+            "A reptile that slithers on the ground",
+            "A lifeform that lives in the water",
+            "An insect that has 8 legs and 8 eyes",
+            "An insect that is very small and can lift 10x its own weight",
+            "An insect that has 100 legs",
+            "A large cat that is orange with black stripes",
+            "An animal that is the smartest on the planet",
+        ];
+
+        function animalGrab() {
+            const animal = document.getElementById("selectAnimal").value;
+            const outputDiv = document.getElementById("output");
+
+            outputDiv.textContent = animalList[animal - 1];
+            console.log(animalList[animal - 1]);
+        }
+    </script>
+
+    <!-- Pulls from different js file for organization. Is html code for JSON workings -->
+    <%- include('JSON') %>
+
+</body>
+</html>

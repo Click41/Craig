@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals</title>
+</head>
+<body>
+    <h1>Choose Your Animal!</h1>
+
+    <!-- Select box containing animals -->
+    <div style="display: flex; align-items: center;">
+        <select id="selectAnimal" onchange="animalGrab()">
+            <option value="">Select your Animal</option>
+            <option value="1">Dog</option>
+            <option value="2">Cat</option>
+            <option value="3">Bald Eagle</option>
+            <option value="4">Snake</option>
+            <option value="5">Fish</option>
+            <option value="6">Spider</option>
+            <option value="7">Ant</option>
+            <option value="8">Centipede</option>
+            <option value="9">Tiger</option>
+            <option value="10">Human</option>
+        </select>
+        
+        <!-- Show's output -->
+        <div id="output" style="margin-left: 50px;"></div>
+
+    </div>
+
+    <!-- Script to run the animalGrab function from the js file-->
+    <script src="index.js"></script>
+
+</body>
+</html>
