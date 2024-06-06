@@ -17,6 +17,16 @@ const Animal = sequelize.define("Animal", {
     autoIncrement: true,
     unique: true,
   },
+  createdAt: {
+    type: DataTypes.DATE,
+    allowNull: false,
+    defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    allowNull: false,
+    defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+  },
 });
 
 module.exports = Animal;

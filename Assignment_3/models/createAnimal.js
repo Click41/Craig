@@ -53,10 +53,10 @@ const animalsToCreate = [
 },
 ];
 
-Animal.bulkCreate(animalsToCreate)
-  .then((animals) => {
-    console.log("Animals created:", animals.map(animal => animal.toJSON()));
-  })
-  .catch((error) => {
-    console.error("Unable to create animals:", error);
-  });
+Animal.bulkCreate(animalsToCreate, { fields: ['name', 'description', 'id'] })
+.then((animals) => {
+  console.log("Animals created:", animals.map(animal => animal.toJSON()));
+})
+.catch((error) => {
+  console.error("Unable to create animals:", error);
+});
