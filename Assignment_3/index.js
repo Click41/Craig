@@ -29,7 +29,6 @@ app.use(methodOverride("_method", {
   methods: ["POST", "GET"]
 }));
 
-
 //routes
 app.get("/", animalController.index);
 app.get("/description/:id", animalController.description);

@@ -21,11 +21,13 @@ const Animal = sequelize.define("Animal", {
     type: DataTypes.DATE,
     allowNull: false,
     defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+    field: 'created_At',
   },
   updatedAt: {
     type: DataTypes.DATE,
     allowNull: false,
     defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+    field: 'updated_At',
   },
 });
 

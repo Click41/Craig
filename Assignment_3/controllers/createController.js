@@ -21,7 +21,7 @@ module.exports = {
             const createdAt = new Date();
             const updatedAt = new Date();
 
-            const sql = 'INSERT INTO animals (id, name, description, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?)';
+            const sql = 'INSERT INTO animals (id, name, description, created_At, updated_At) VALUES (?, ?, ?, ?, ?)';
 
             db.query(sql, [id, name, description, createdAt, updatedAt], (err, result) => {
                 if (err) {
@@ -62,7 +62,7 @@ module.exports = {
 
             const updatedAt = new Date();
 
-            const sql = 'UPDATE animals SET name = ?, description = ?, updatedAt = ? WHERE id = ?';
+            const sql = 'UPDATE animals SET name = ?, description = ?, updated_At = ? WHERE id = ?';
 
             db.query(sql, [name, description, updatedAt, id], (err, result) => {
                 if (err) {
