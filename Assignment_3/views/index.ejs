@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Animals</title>
+</head>
+
+<body>
+    <h1>Choose Your Animal!</h1>
+
+    <div class="selectBox">
+        <select id="selectAnimal" onchange="animalGrab()">
+            <option value="0">Select your Animal</option>
+            <% animals.forEach(animal=> { %>
+                <option value="<%= animal.id %>">
+                    <%= animal.name %>
+                </option>
+                <% }); %>
+        </select>
+
+        <div id="output"></div>
+    </div>
+
+    <table id="animalTable">
+        <tr>
+            <th>Name</th>
+
+        </tr>
+        <% animals.forEach(animal=> { %>
+            <tr>
+                <td>
+                    <%= animal.name %>
+                </td>
+                <td>
+                    <a href="/delete/<%= animal.id %>?_method=DELETE"
+                        onclick="return confirm('Are you sure you want to delete this animal?')">
+                        <button class="delete-icon"><img src="img/trash.png" alt="Delete" width="20"
+                                height="20"></button>
+                    </a>
+                </td>
+            </tr>
+            <% }); %>
+    </table>
+
+    <!-- for some reason it wouldn't work in a clientController.js file. I tried -->
+    <script>
+        async function animalGrab() {
+            const selectAnimal = document.getElementById("selectAnimal");
+            const outputDiv = document.getElementById("output");
+
+            const selectedAnimal = selectAnimal.value;
+
+            // if empty, clear the output div and return
+            if (selectedAnimal === "") {
+                outputDiv.innerText = "";
+                return;
+            }
+
+            try {
+                const response = await fetch(`/description/${selectedAnimal}`);
+
+                if (response.ok) {
+                    const data = await response.json();
+                    outputDiv.innerText = JSON.stringify(data, null, 2);
+                } else {
+                    console.error("Error fetching animal description:", response.statusText);
+                }
+            } catch (error) {
+                console.error("Error fetching animal description:", error);
+            }
+        }
+
+        const selectAnimal = document.getElementById("selectAnimal");
+
+        // Add an event listener to handle the select box change
+        selectAnimal.addEventListener("change", animalGrab);
+
+        delete stuff
+        async function deleteAnimal(animalId) {
+            fetch(`/delete/${animalId}`, {
+                method: 'DELETE'
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Remove the animal row from the table
+                        const row = document.querySelector(`button[onclick="deleteAnimal('${animalId}')"]`).parentNode.parentNode;
+                        row.parentNode.removeChild(row);
+                    } else {
+                        console.error('Failed to delete animal:', data.error);
+                        alert('Failed to delete animal');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to delete animal');
+                });
+        }
+
+        function populateAnimalTable(animals) {
+            const animalTable = document.getElementById("animalTable");
+            // Clear existing table rows
+            animalTable.innerHTML = `
+        <tr>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    `;
+            // Add new table rows with updated data
+            animals.forEach(animal => {
+                animalTable.innerHTML += `
+            <tr>
+                <td>${animal.name}</td>
+                <td><button onclick="deleteAnimal('${animal._id}')">Delete</button></td>
+            </tr>
+        `;
+            });
+        }
+
+    </script>
+</body>
+
+</html>

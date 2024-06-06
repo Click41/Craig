@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create New Animal</title>
+</head>
+
+<body>
+    <div class="data-form">
+        <form action="/create" method="post">
+            <h1>Create An Animal!</h1>
+
+            <label for="inputId">ID:</label>
+            <input type="text" name="id" id="inputID" placeholder="ID" autofocus>
+
+            <label for="inputName">Name:</label>
+            <input type="text" name="name" id="inputName" placeholder="Name" autofocus>
+
+            <label for="inputDescription">Description:</label>
+            <input type="text" name="description" id="inputDescription" placeholder="Description" autofocus>
+
+            <!-- can't see these -->
+            <input type="hidden" name="createdAt" value="<%= new Date().toISOString() %>">
+            <input type="hidden" name="updatedAt" value="<%= new Date().toISOString() %>">
+
+            <button type="submit" value="submit" class="layoutButton">Create</button>
+        </form>
+    </div>
+</body>

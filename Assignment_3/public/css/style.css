@@ -1,8 +1,121 @@
-#output {
-    margin-left: 50px;
+nav {
+  background-color: rgb(13, 13, 112);
+  box-shadow: 0 0 0.5em 0.5em rgb(205, 205, 227);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.selectBox {
-  display: flex; 
-  align-items: center;
+nav .button {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border: none;
+  padding: 7px 20px;
+  /* Adjusted padding to match the .nav a padding */
+  border-radius: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: large;
+}
+
+nav .button:hover {
+  background-color: white;
+  color: black;
+}
+
+.delete-icon {
+  background-color: transparent;
+  border: none;
+
+}
+
+.delete-icon:hover {
+  background-color: red;
+}
+
+#output {
+  margin-left: 50px;
+}
+
+.selectBox select {
+  font-size: 18px;
+  /* Adjust the font size as needed */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: inline-block;
+  /* Added to make it display inline */
+}
+
+.selectBox #output {
+  margin-top: 10px;
+  font-size: 18px;
+  /* Adjust the font size as needed */
+  display: inline-block;
+  /* Added to make it display inline */
+  vertical-align: top;
+  /* Added to align it with the top of the select dropdown */
+}
+
+#animalTable {
+  border-collapse: collapse;
+  margin-top: 20px;
+  border: 2px solid black;
+  width: 15%;
+  text-align: center;
+}
+
+#animalTable th,
+#animalTable td {
+  border: 1px solid black;
+  padding: 10px;
+
+}
+
+#updateAnimal {
+  border-collapse: collapse;
+  margin-top: 20px;
+  border: 2px solid black;
+  text-align: center;
+}
+
+#updateAnimal th,
+#updateAnimal td {
+  border: 1px solid black;
+  padding: 10px;
+
+}
+
+.animalImage {
+  max-width: 200px;
+}
+
+.layoutButton {
+  margin-top: 15px;
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.section {
+  margin-top: 20px;
+}
+
+label {
+  font-size: 18px;
+  color: #333;
+}
+
+input[type="text"] {
+  border: 1px solid #ccc;
+  margin-right: 20px;
+  font-size: 16px;
+}
+
+#selectId {
+  margin-right: 20px;
+  font-size: 16px;
 }

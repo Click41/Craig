@@ -4,66 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animals</title>
 
     <link rel="stylesheet" href="/css/style.css" type="text/css" />
-
 </head>
+<nav>
+    <a href="/" class="button">Home</a>
+    <a href="/create" class="button">Create</a>
+    <a href="/update" class="button">Update</a>
+</nav>
 
 <body>
-    <h1>Choose Your Animal!</h1>
-
-    <div class="selectBox">
-        <select id="selectAnimal" onchange="animalGrab()">
-            <option value="">Select your Animal</option>
-            <option value="1">Dog</option>
-            <option value="2">Cat</option>
-            <option value="3">Bald Eagle</option>
-            <option value="4">Snake</option>
-            <option value="5">Fish</option>
-            <option value="6">Spider</option>
-            <option value="7">Ant</option>
-            <option value="8">Centipede</option>
-            <option value="9">Tiger</option>
-            <option value="10">Human</option>
-        </select>
-
-        <div id="output"></div>
-    </div>
-
-    <!-- Had to move to client code side for function to work -->
-    <script>
-        async function animalGrab() {
-            const selectAnimal = document.getElementById("selectAnimal");
-            const outputDiv = document.getElementById("output");
-
-            const selectedAnimal = selectAnimal.value; // Get the selected value
-
-            // Check if the select box value is empty
-            if (selectedAnimal === "") {
-                outputDiv.innerText = ""; // Clear the output div
-                return; // Exit the function since there's no animal selected
-            }
-
-            try {
-                const response = await fetch(`/description/${selectedAnimal}`);
-
-                if (response.ok) {
-                    const data = await response.json();
-                    outputDiv.innerText = JSON.stringify(data, null, 2);
-                } else {
-                    console.error("Error fetching animal description:", response.statusText);
-                }
-            } catch (error) {
-                console.error("Error fetching animal description:", error);
-            }
-        }
-
-        const selectAnimal = document.getElementById("selectAnimal");
-
-        // Add an event listener to handle the select box change
-        selectAnimal.addEventListener("change", animalGrab);
-    </script>
+    <%- body %>
 </body>
 
 </html>
