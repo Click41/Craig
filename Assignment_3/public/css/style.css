@@ -12,7 +12,6 @@ nav .button {
   text-decoration: none;
   border: none;
   padding: 7px 20px;
-  /* Adjusted padding to match the .nav a padding */
   border-radius: 5px;
   margin: 0 10px;
   cursor: pointer;
@@ -40,22 +39,17 @@ nav .button:hover {
 
 .selectBox select {
   font-size: 18px;
-  /* Adjust the font size as needed */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   display: inline-block;
-  /* Added to make it display inline */
 }
 
 .selectBox #output {
   margin-top: 10px;
   font-size: 18px;
-  /* Adjust the font size as needed */
   display: inline-block;
-  /* Added to make it display inline */
   vertical-align: top;
-  /* Added to align it with the top of the select dropdown */
 }
 
 #animalTable {
